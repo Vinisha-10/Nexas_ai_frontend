@@ -15,7 +15,7 @@
 <br/>
 
 <div align="center">
-  <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" width="100%" style="border-radius: 12px; margin-bottom: 20px;" alt="Abstract Dark Aesthetic"/>
+  <img src="./public/preview.png" width="100%" style="border-radius: 12px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1);" alt="Nexus AI Dashboard Preview"/>
 </div>
 
 ## 🌌 The Platform
