@@ -28,7 +28,7 @@
 
 | Feature | Description |
 |---|---|
-| 🤖 **Multi-Model Hub** | Seamlessly route tasks between Claude, GPT-4, and Gemini. |
+| 🤖 **Multi-Model Hub** | Seamlessly route tasks between Gemini and Groq. |
 | 📊 **Data Analytics** | Natural language to SQL via DuckDB. Export to PDF, DOCX, or PPTX. |
 | 🧠 **Document Intelligence** | Upload resources, generate summaries, and populate vector storage. |
 | ⚡ **Visual Workflows** | Wire document ingestion, OCR, translation, and alerts visually. |

@@ -98,7 +98,7 @@ export default function WorkspacePage() {
     } else if (routeChoice === "CodingAgent") {
       responseText = "### SSE Streaming — FastAPI\n\n```python\nfrom fastapi import FastAPI\nfrom fastapi.responses import StreamingResponse\nimport asyncio\n\napp = FastAPI()\n\nasync def event_stream():\n    for i in range(5):\n        await asyncio.sleep(0.4)\n        yield f'data: {\"chunk\": i}\\n\\n'\n\n@app.get('/stream')\nasync def stream():\n    return StreamingResponse(event_stream(), media_type='text/event-stream')\n```"
     } else {
-      responseText = "I'm your Nexus AI workspace assistant. I support multi-model switching (Claude, GPT-4, Gemini), document RAG querying, DuckDB analytics, and visual automation workflows. What can I help you with?"
+      responseText = "I'm your Nexus AI workspace assistant. I support multi-model switching (Gemini and Groq), document RAG querying, DuckDB analytics, and visual automation workflows. What can I help you with?"
     }
     let currentText = ""
     const words = responseText.split(" ")
@@ -190,7 +190,7 @@ export default function WorkspacePage() {
               </h1>
 
               <p className="page-subtitle text-[15px] max-w-xl mx-auto mb-10">
-                Switch between Claude, GPT-4, and Gemini. Analyze data with DuckDB, manage knowledge bases with RAG, and build visual agent workflows.
+                Switch between Gemini and Groq. Analyze data with DuckDB, manage knowledge bases with RAG, and build visual agent workflows.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-14">
@@ -205,7 +205,7 @@ export default function WorkspacePage() {
               {/* Feature grid */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left stagger-children">
                 {[
-                  { icon: Bot, color: 'var(--accent)', label: 'Multi-Model Hub', desc: 'Route tasks to Claude, GPT-4, or Gemini with one click.' },
+                  { icon: Bot, color: 'var(--accent)', label: 'Multi-Model Hub', desc: 'Route tasks to Gemini or Groq with one click.' },
                   { icon: Database, color: 'var(--accent-2)', label: 'Data Analytics', desc: 'Natural language → SQL via DuckDB. Export to PDF or DOCX.' },
                   { icon: GitBranch, color: 'var(--accent-3)', label: 'Visual Workflows', desc: 'Chain OCR, translation, ingestion, and email nodes graphically.' },
                 ].map(({ icon: Icon, color, label, desc }) => (
@@ -377,7 +377,7 @@ export default function WorkspacePage() {
                 </div>
                 {/* Model pills */}
                 <div className="flex items-center gap-1.5">
-                  {['GPT-4', 'Claude-3', 'Gemini'].map(model => (
+                  {['Groq', 'Gemini'].map(model => (
                     <button
                       key={model}
                       onClick={() => {
@@ -684,11 +684,11 @@ export default function WorkspacePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children">
               {[
-                { name: "Data Analyst", model: "GPT-4", desc: "Aggregates DuckDB queries, generates charts, exports analytics.", tools: ["duckdb_sql", "pandas"], color: 'var(--accent)' },
-                { name: "Research Agent", model: "Claude-3", desc: "Crawls the web Perplexity-style, synthesizes briefs, cites sources.", tools: ["web_crawler", "rag"], color: '#6366f1' },
-                { name: "Coding Agent", model: "GPT-4", desc: "Writes Python scripts, solves algorithms, reviews code.", tools: ["code_executor"], color: 'var(--accent-2)' },
+                { name: "Data Analyst", model: "Groq", desc: "Aggregates DuckDB queries, generates charts, exports analytics.", tools: ["duckdb_sql", "pandas"], color: 'var(--accent)' },
+                { name: "Research Agent", model: "Gemini", desc: "Crawls the web Perplexity-style, synthesizes briefs, cites sources.", tools: ["web_crawler", "rag"], color: '#6366f1' },
+                { name: "Coding Agent", model: "Groq", desc: "Writes Python scripts, solves algorithms, reviews code.", tools: ["code_executor"], color: 'var(--accent-2)' },
                 { name: "Resume Reviewer", model: "Gemini 1.5", desc: "Parses CV documents, checks role fit, gives structured feedback.", tools: ["vision_ocr", "nlp"], color: '#f97316' },
-                { name: "Business Analyst", model: "Claude-3 Sonnet", desc: "SWOT analysis, competitor research, KPI frameworks.", tools: ["web_crawler"], color: '#ec4899' },
+                { name: "Business Analyst", model: "Gemini 1.5 Flash", desc: "SWOT analysis, competitor research, KPI frameworks.", tools: ["web_crawler"], color: '#ec4899' },
               ].map((a, i) => (
                 <div key={i} className="card-interactive p-5 flex flex-col">
                   <div className="flex items-start justify-between mb-4">
@@ -936,8 +936,8 @@ export default function WorkspacePage() {
                 <p className="text-[12px] mt-0.5" style={{ color: 'var(--fg-muted)' }}>Running in mock mode. Add keys for live model access.</p>
               </div>
               {[
-                { label: 'OpenAI', placeholder: 'sk-...' },
-                { label: 'Anthropic Claude', placeholder: 'sk-ant-...' },
+                { label: 'OpenAI (Fallback)', placeholder: 'sk-...' },
+                { label: 'Groq', placeholder: 'gsk_...' },
                 { label: 'Google Gemini', placeholder: 'AIzaSy...' },
               ].map(({ label, placeholder }) => (
                 <div key={label} className="space-y-1.5">

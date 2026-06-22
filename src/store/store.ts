@@ -137,8 +137,8 @@ export const useAppStore = create<AppState>((set) => ({
   setWorkspaces: (workspaces) => set({ workspaces }),
   
   conversations: [
-    { id: 101, title: "Quarterly Revenue Forecasting", model_name: "Claude-3 Opus", created_at: "2026-06-21T14:15:00Z" },
-    { id: 102, title: "Natural Language SQL Interface", model_name: "GPT-4", created_at: "2026-06-21T12:30:00Z" },
+    { id: 101, title: "Quarterly Revenue Forecasting", model_name: "Gemini 1.5 Pro", created_at: "2026-06-21T14:15:00Z" },
+    { id: 102, title: "Natural Language SQL Interface", model_name: "Groq", created_at: "2026-06-21T12:30:00Z" },
     { id: 103, title: "Multi-Agent System Orchestration", model_name: "Gemini 1.5 Pro", created_at: "2026-06-21T10:00:00Z" }
   ],
   activeConversationId: 101,
@@ -211,7 +211,7 @@ export const useAppStore = create<AppState>((set) => ({
         nodes: [
           { id: "1", type: "file_source", data: { label: "PDF Document Ingest" }, position: { x: 50, y: 150 } },
           { id: "2", type: "ocr_parser", data: { label: "Vision OCR Parse" }, position: { x: 250, y: 150 } },
-          { id: "3", type: "summarize_node", data: { label: "Summarize (GPT-4)" }, position: { x: 450, y: 150 } },
+          { id: "3", type: "summarize_node", data: { label: "Summarize (Groq)" }, position: { x: 450, y: 150 } },
           { id: "4", type: "export_pdf", data: { label: "PDF Export" }, position: { x: 650, y: 150 } }
         ],
         edges: [
